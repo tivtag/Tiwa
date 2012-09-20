@@ -108,14 +108,38 @@ namespace Tiwa
             if( notifyIcon != null )
                 notifyIcon.Visible = show;
         }
+
+        private void Start()
+        {
+            gameLoop.Start();
+            state = TiwaState.Started;
+            buttonStartPause.Content = TiwaResources.Pause;
+        }
+
+        private void Pause()
+        {
+            gameLoop.Stop();
+            state = TiwaState.Paused;
+            buttonStartPause.Content = TiwaResources.Start;
+        }
+
+        private void Minimize()
+        {
+            this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void Reset()
+        {
+            this.SetTime( TimeSpan.FromMinutes( settings.Time ) );
+        }
         
-        private void OnWindowStateChanged(object sender, EventArgs e)
+        private void OnWindowStateChanged( object sender, EventArgs e )
         {
             if( WindowState == WindowState.Minimized )
             {
                 Hide();
                 if( notifyIcon != null )
-                    notifyIcon.ShowBalloonTip(2000);
+                    notifyIcon.ShowBalloonTip( 2000 );
             }
         }
 
@@ -145,13 +169,11 @@ namespace Tiwa
             this.Minimize();
         }
 
-        private void OnStartButtonClicked( object sender, RoutedEventArgs e )
+        private void OnStartPauseButtonClicked( object sender, RoutedEventArgs e )
         {
             if( state == TiwaState.Paused )
             {
-                gameLoop.Start();
-                state = TiwaState.Started;
-                buttonStart.Content = TiwaResources.Pause;
+                Start();
             }
             else
             {
@@ -166,26 +188,9 @@ namespace Tiwa
             }
         }
 
-        private void Pause()
-        {
-            gameLoop.Stop();
-            state = TiwaState.Paused;
-            buttonStart.Content = TiwaResources.Start;
-        }
-
-        private void Minimize()
-        {
-            this.WindowState = System.Windows.WindowState.Minimized;
-        }
-
         private void OnResetButtonClicked( object sender, RoutedEventArgs e )
         {
             Reset();
-        }
-
-        private void Reset()
-        {
-            this.SetTime( TimeSpan.FromMinutes( settings.Time ) );
         }
 
         private TimeSpan time;

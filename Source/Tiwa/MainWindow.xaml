@@ -31,7 +31,7 @@
 
         <Button Content="_" Width="24" Height="24" Click="OnMinimizeButtonClicked" Grid.Column="1"/>
         <Button Name="buttonClose" Content="X" Width="24" Height="24" Click="OnCloseButtonClicked" Grid.Column="2"/>
-        <Button Name="buttonStart" Content="Start" Height="40" VerticalAlignment="Top" FontSize="20" Click="OnStartButtonClicked" Grid.ColumnSpan="3" Grid.Row="2"/>
+        <Button Name="buttonStartPause" Content="Start" Height="40" VerticalAlignment="Top" FontSize="20" Click="OnStartPauseButtonClicked" Grid.ColumnSpan="3" Grid.Row="2"/>
         <Button Name="buttonReset" Content="Reset" Height="40" VerticalAlignment="Top" FontSize="20" Click="OnResetButtonClicked" Grid.ColumnSpan="3" Grid.Row="3"/>
     </Grid>
 </Window>
