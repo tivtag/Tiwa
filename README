@@ -1,0 +1,7 @@
+TIme WArner tries to help you take your hourly computer screen break.
+It pops up in the middle of your screen, informing you to get your well deserved eye rest.
+
+=== Usage
+TiWa is mostly self-explanatory but for:
+* Shift + Click on the Start Button to start the timer and minimize it to the tray at the same time
+* To change the default 50 minute timer simply change the value in settings.txt
